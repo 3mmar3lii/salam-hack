@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const connectDB = require('./db/db');
 
+const v1Routes = require('./routes');
 
 // Middlewares
 const { errorHandler } = require('./middlewares/error.middleware');
@@ -27,7 +28,8 @@ if (process.env.NODE_ENV === 'development') {
 connectDB();
 
 // API Routes
-//app.use('/api/v1', v1Routes);
+app.use('/api/v1', v1Routes);
+
 
 
 
