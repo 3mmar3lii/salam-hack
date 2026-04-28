@@ -6,12 +6,11 @@ const budgetSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
-    categoryId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category',
-        required: true
+    category: {
+        type: mongoose.Schema.Types.Mixed,
+        required: true 
     },
-    amount: {
+    monthlyLimit: {
         type: Number,
         required: true
     },
@@ -35,6 +34,8 @@ const budgetSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
+
+
 
 const Budget = mongoose.model('Budget', budgetSchema);
 module.exports = Budget;

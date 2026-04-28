@@ -1,8 +1,10 @@
-const { callOpenAI } = require('../services/openai.service');
+const { callHackstormAI } = require('../services/ai.service');
 
 const sendMessage = async (req, res, next) => {
     try {
         const { message } = req.body;
+        // In a real app, this would be req.user.id
+        const userId = req.user?.id || 'default_user';
 
         if (!message || message.trim() === '') {
             return res.status(400).json({
@@ -11,11 +13,11 @@ const sendMessage = async (req, res, next) => {
             });
         }
 
-        const aiResponse = await callOpenAI(message);
+        const aiResult = await callHackstormAI(userId, message);
 
         return res.status(200).json({
             success: true,
-            data: aiResponse
+            data: aiResult
         });
 
     } catch (error) {

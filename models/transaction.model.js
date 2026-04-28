@@ -11,9 +11,13 @@ const transactionSchema = new mongoose.Schema({
         ref: 'Account',
         required: true
     },
-    categoryId: {
+    category: {
+        type: mongoose.Schema.Types.Mixed,
+        default: null  
+    },
+    toAccountId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category'
+        ref: 'Account'
     },
     type: {
         type: String,
@@ -28,9 +32,10 @@ const transactionSchema = new mongoose.Schema({
         type: String,
         default: 'EGP'
     },
-    note: {
+    description: {
         type: String,
-        trim: true
+        trim: true,
+        default: null
     },
     date: {
         type: Date,
