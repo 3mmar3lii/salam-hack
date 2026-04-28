@@ -25,6 +25,15 @@ const userSchema = new mongoose.Schema({
     timezone: {
         type: String,
         default: 'UTC'
+    },
+    age: {
+        type: Number,
+        default: null
+    },
+    occupation: {
+        type: String,
+        default: null,
+        trim: true
     }
 }, {
     timestamps: true

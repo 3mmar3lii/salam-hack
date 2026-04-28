@@ -13,7 +13,7 @@ const accountSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        enum: ['wallet', 'bank', 'cash'],
+        enum: ['checking', 'savings', 'credit', 'cash'],
         default: 'cash'
     },
     balance: {
